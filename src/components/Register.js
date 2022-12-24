@@ -9,6 +9,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState({});
+  const [data, setData]= useState('')
 
   const [reg, setReg] = useState({
     name:"", nickname:"" , email:"", password: "",confirmPassword:""
@@ -59,17 +60,23 @@ const Register = () => {
   const handleSubmit = (e)=>{
     e.preventDefault()
     setFormErrors(validate(reg));
+
     if (Object.keys(formErrors).length === 0) {
       console.log(reg)
       sendRequest()
-      .then((data)=>localStorage.setItem("items",JSON.stringify({
-        "userID": data.user._id,
-        "nickName": data.user.nickname
-      })))
+      .then(data=>console.log(data))
+      .then(data=>setData(data))
+      // .then((data)=>localStorage.setItem("items",JSON.stringify({
+      //   "userID": data.newUser._id,
+      //   "nickName": data.newUser.nickname,
+      // })))
       .then(()=>dispatch(authActions.login()))
-      .then(()=>navigate('/'))
-      .then(data=>console.log(data));
+      .then(()=>navigate('/login'))
+      console.log("registration done!!!")
+
     }
+
+    console.log(data)
   }
   return (
  

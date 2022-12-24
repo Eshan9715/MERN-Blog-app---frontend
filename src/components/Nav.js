@@ -9,7 +9,7 @@ import { authActions } from '../store';
 const Nav = () => {
   const isLoggedIn = useSelector((state)=> state.isLoggedIn);
   const dispatch = useDispatch();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState('');
 
   useEffect(() => {
     const localStorageItems = JSON.parse(localStorage.getItem('items'));
@@ -18,6 +18,11 @@ const Nav = () => {
         setData(localStorageItems);
     }
 }, []);
+
+  const handleAuth = ()=>{
+    dispatch(authActions.logout());
+    // localStorage.removeItem('items')
+  }
 
   // console.log(data.userName.slice(0,5))
 
@@ -54,14 +59,14 @@ const Nav = () => {
           }
          
           <div className='flex flex-col md:flex-row'>
-            {isLoggedIn && <div className='bg-orange-600 text-white font-Monserrat font-bold py-2 px-6 rounded md:ml-8 hover:bg-orange-400 
-            duration-500 w-[250px] mt-5 md:w-[130px] md:mt-2'>Hi {data && data.nickName}</div>}
+            {isLoggedIn && <div className='bg-orange-600 text-white text-center font-Monserrat font-bold py-2 px-6 rounded md:ml-8 hover:bg-orange-400 
+            duration-500 w-[250px] mt-5 md:w-[150px] md:mt-2'>Hi {data && data.nickName}</div>}
             {!isLoggedIn && <> 
                         {/* <Link to='/login' className='text-gray-800 hover:text-gray-400 duration-500 font-Monserrat '><Button>Sign In</Button></Link> */}
                         <Link to='/register' className='text-gray-800 hover:text-gray-400 duration-500 font-Monserrat '><Button name='Sign up'></Button></Link>
                          </>
             }
-            {isLoggedIn && <Link to='/login' className='text-gray-800 hover:text-gray-400 duration-500 font-Monserrat '><Button name='logout' handleClick={()=>dispatch(authActions.logout())} >logout</Button></Link>
+            {isLoggedIn && <Link to='/login' className='text-gray-800 hover:text-gray-400 duration-500 font-Monserrat '><Button name='logout' handleClick={handleAuth} >logout</Button></Link>
             }
           </div>
         
