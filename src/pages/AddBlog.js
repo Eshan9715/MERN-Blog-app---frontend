@@ -29,7 +29,7 @@ const AddBlog = () => {
 }, []);
 
   const sendRequest = async()=>{
-    const res = await axios.post("http://localhost:5000/api/blogs/add",{
+    const res = await axios.post("https://blue-fragile-mussel.cyclic.app/api/blogs/add",{
       title:input.title,
       headline:input.headline,
       description:input.description,

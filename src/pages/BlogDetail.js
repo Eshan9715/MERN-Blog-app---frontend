@@ -11,7 +11,7 @@ const BlogDetail = () => {
   const[blogD, setBlogD] = useState('')
 
   const sendRequest = async ()=>{
-    const res = await axios.get(`http://localhost:5000/api/blogs/${id}`)
+    const res = await axios.get(`https://blue-fragile-mussel.cyclic.app/api/blogs/${id}`)
     .catch(err=>console.log(err));
     const data = await res.data;
     return data;

@@ -17,7 +17,7 @@ const Home = () => {
 
 
   const sendRequest = async ()=>{
-    const res = await axios.get("http://localhost:5000/api/blogs").catch(err=>console.log(err));
+    const res = await axios.get("https://blue-fragile-mussel.cyclic.app/api/blogs").catch(err=>console.log(err));    //http://localhost:5000
     const data = await res.data;
     return data;
   }

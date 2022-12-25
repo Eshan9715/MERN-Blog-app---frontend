@@ -16,7 +16,7 @@ const Register = () => {
   })
 
   const sendRequest = async ()=> {
-    const res = await axios.post("http://localhost:5000/api/user/signup",{
+    const res = await axios.post("https://blue-fragile-mussel.cyclic.app/api/user/signup",{
       name: reg.name,
       nickname: reg.nickname,
       email:reg.email,
