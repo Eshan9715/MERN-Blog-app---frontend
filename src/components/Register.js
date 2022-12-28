@@ -69,12 +69,12 @@ const Register = () => {
     if (Object.keys(formErrors).length === 0) {
       console.log(reg)
       sendRequest()
-      .then((data)=>localStorage.setItem("items",JSON.stringify({
-        "userID": data.user._id,
-        "nickName": data.user.nickname
-    })))
+    //   .then((data)=>localStorage.setItem("items",JSON.stringify({
+    //     "userID": data.user._id,
+    //     "nickName": data.user.nickname
+    // })))
       .then(()=>dispatch(authActions.login()))
-      .then(()=>navigate('/'))
+      .then(()=>navigate('/login'))
       .then(data=>console.log(data))
       .then(data=>setData(data))
     }
