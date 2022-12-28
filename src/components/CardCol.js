@@ -17,7 +17,7 @@ const CardCol = ({image,title,catogery,author,tags,description,id}) => {
   }
   return (
     <>
-      <div class="max-w-sm rounded overflow-hidden shadow-lg transform transition-all duration-300 scale-100 hover:scale-95 w-[450px]">
+      <div class="max-w-sm rounded overflow-hidden shadow-lg transform transition-all duration-300 scale-100 hover:scale-95">
           <img class="w-full h-[250px] object-cover" src={image} alt="Sunset in the mountains"/>
           <div class="px-6 py-3">
             <div class="text-base text-white mb-2 absolute top-2 left-2 rounded-xl px-4 py-1 w-[80px] text-center bg-orange-600">{catogery}</div>

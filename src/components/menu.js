@@ -3,7 +3,8 @@ import CardCol from './CardCol'
 
 const Menu = ({menuItem}) => {
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6 mx-auto ml-16">
+        <div className='flex justify-center items-center'>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-6">
             {
                 menuItem.map((item) =>{
                     return (                      
@@ -13,14 +14,17 @@ const Menu = ({menuItem}) => {
                         image={item.image}
                         title={item.title} 
                         description={item.headline} 
-                        catogery= {item.type}
+                        catogery= {item.type} 
                         author= {item.user.name}
                         />
                     )
                 }
                 
             )}
+          
+            </div>
         </div>
+       
     )
 }
 

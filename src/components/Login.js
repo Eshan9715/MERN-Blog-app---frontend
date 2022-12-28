@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formErrors, setFormErrors] = useState({});
-
+  const [data, setData]= useState()
 
   const [log, setLog] = useState({
       email:"", password: ""
@@ -56,10 +56,14 @@ const Login = () => {
       })))
       .then(()=>dispatch(authActions.login()))
       .then(()=>navigate('/'))
-      .then(data=>console.log(data));
+      .then(data=>console.log(data))
+      .then(data=>setData(data));
+
     // .then((data)=>localStorage.setItem("userID",data.user._id))
     // .then((data)=>localStorage.setItem("userName",data.user.name))
   }
+
+  console.log(data)
    
   }
   return (

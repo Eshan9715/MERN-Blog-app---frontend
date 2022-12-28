@@ -67,7 +67,7 @@ const AddBlog = () => {
       errors.headline = "Headline is required!";
     }
     else if (values.headline.length > 40) {
-      errors.headline = "Headline must be less than 40 characters";
+      errors.headline = "Headline must be less than 60 characters";
     } 
     if (!values.description) {
       errors.description = "Description is required!";

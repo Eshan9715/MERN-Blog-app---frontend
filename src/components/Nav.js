@@ -21,7 +21,7 @@ const Nav = () => {
 
   const handleAuth = ()=>{
     dispatch(authActions.logout());
-    // localStorage.removeItem('items')
+    localStorage.removeItem('items')
   }
 
   // console.log(data.userName.slice(0,5))

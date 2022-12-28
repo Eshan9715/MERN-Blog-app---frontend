@@ -10,6 +10,7 @@ import CardRow from '../components/CardRow';
 
 const UserBlogs = () => {
   const isLoggedIn = useSelector((state)=> state.isLoggedIn);
+  const [logState,setLogState] = useState(false);
   const[user, setUser] = useState('')
   // const [items, setItems] = useState([]);
 
@@ -22,8 +23,7 @@ const UserBlogs = () => {
   // }
 
 
-  const id  = localStorageItems.userID;
-  console.log(id);
+
 
 
   //console.log(localStorageItems.userID)
@@ -32,10 +32,17 @@ const UserBlogs = () => {
   // console.log("user id >>>>>> :" + id)
 
   const sendRequest = async ()=>{
-    const res = await axios.get(`https://blue-fragile-mussel.cyclic.app/api/blogs/user/${id}`)
-    .catch(err=>console.log(err));
-    const data = await res.data;
-    return data;
+    if(isLoggedIn===true){
+      const id  = localStorageItems.userID;
+      console.log(id);
+      const res = await axios.get(`https://blue-fragile-mussel.cyclic.app/api/blogs/user/${id}`)
+      .catch(err=>console.log(err));
+      const data = await res.data;
+      return data;
+    } else{
+      logState(false);
+    }
+  
   }
 
 

@@ -47,7 +47,7 @@ const Home = () => {
   return (
     <div>
       <Nav/>
-      <div className='mt-[80px]'>
+      <div className='md:mt-[80px]'>
         <Hero/>
 
         <Button button={buttons} filter={filter} />
